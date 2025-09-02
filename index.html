@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Imam Nur Ihsanuddin — Biodata</title>
+  <meta name="description" content="Website biodata tugas akhir sekolah: profil, pendidikan, skill, portofolio, blog, kontak."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0f17; --card:#111827; --muted:#94a3b8; --text:#e5e7eb; --brand:#22d3ee; --brand-2:#a78bfa; --ok:#34d399; --warn:#f59e0b; --err:#f87171;
+      --ring: 0 0 0 3px rgba(34,211,238,.25);
+      --radius-2xl:1.25rem; --radius-xl:1rem; --radius-lg:.75rem; --radius-md:.5rem; --radius-sm:.375rem;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.15);
+      --shadow-md: 0 10px 25px rgba(0,0,0,.25);
+      --shadow-lg: 0 20px 40px rgba(0,0,0,.35);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 800px at 80% -10%,rgba(167,139,250,.15),transparent 60%),
+        radial-gradient(1000px 700px at -10% 10%,rgba(34,211,238,.15),transparent 50%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6
+    }
+    img{max-width:100%;display:block}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{filter:brightness(1.15)}
+
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .grid{display:grid;gap:24px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    @media (max-width:980px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+    /* Card */
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.0) 40%),var(--card);
+      border:1px solid rgba(148,163,184,.15);
+      padding:20px; border-radius:var(--radius-2xl);
+      box-shadow:var(--shadow-sm); backdrop-filter: blur(6px);
+      transition:.25s ease;
+    }
+    .card:hover{box-shadow:var(--shadow-md); transform: translateY(-2px)}
+
+    /* Header + Navbar */
+    header.site{
+      position:sticky; top:0; z-index:1000;
+      background:rgba(11,15,23,.85);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(148,163,184,.12)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:40px;height:40px;border-radius:12px;background:conic-gradient(from 210deg, var(--brand), var(--brand-2), var(--brand)); box-shadow:0 0 0 4px rgba(34,211,238,.15)}
+    .brand h1{font-size:18px;margin:0}
+    .navbar{display:flex;gap:18px;align-items:center}
+    .navbar a{opacity:.9}
+    .hamburger{display:none; font-size:26px; cursor:pointer; user-select:none}
+
+    @media (max-width:768px){
+      .hamburger{display:block}
+      .navbar{
+        display:none; flex-direction:column; gap:10px;
+        position:absolute; right:24px; top:64px; width:220px;
+        background:rgba(0,0,0,.95); border:1px solid rgba(148,163,184,.2);
+        border-radius:12px; padding:14px; box-shadow:var(--shadow-lg)
+      }
+      .navbar.active{display:flex}
+    }
+
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;border:1px solid rgba(148,163,184,.2); background:rgba(255,255,255,.04); color:var(--text); cursor:pointer}
+    .btn:focus{box-shadow:var(--ring)}
+    .btn-primary{background:linear-gradient(90deg,var(--brand),var(--brand-2)); border:none}
+    .btn-ghost{background:transparent}
+
+    /* Hero */
+    .hero{padding:80px 0 40px}
+    .hero h2{font-size:48px; line-height:1.1; margin:0 0 12px; letter-spacing:.2px}
+    .hero p{color:var(--muted); max-width:800px}
+    .badge{display:inline-flex;gap:8px; align-items:center; padding:6px 12px; border-radius:999px; background:rgba(34,211,238,.08); border:1px solid rgba(34,211,238,.25); font-size:12px; letter-spacing:.4px}
+
+    /* Profile block (foto biodata) */
+    .profile-wrap{
+      display:grid; grid-template-columns:150px 1fr; gap:9px; align-items:center
+    }
+    .profile-photo{
+      width:140px; height:140px; border-radius:18px;
+      border:1px solid rgba(148,163,184,.2); object-fit:cover
+    }
+    @media (min-width:1100px){
+      .profile-wrap{grid-template-columns:180px 1fr}
+      .profile-photo{width:180px; height:180px}
+    }
+    @media (max-width:560px){
+      .profile-wrap{grid-template-columns:120px 1fr}
+      .profile-photo{width:120px; height:120px}
+    }
+
+    /* Sections */
+    section{scroll-margin-top:80px}
+    .section-title{font-size:28px;margin:0 0 6px}
+    .section-sub{color:var(--muted); margin:0 0 16px}
+
+    /* Timeline */
+    .timeline{position:relative; padding-left:28px}
+    .timeline:before{content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:linear-gradient(180deg, transparent, rgba(167,139,250,.75), transparent)}
+    .t-item{position:relative; margin:18px 0; padding:16px 16px 16px 18px; border-radius:var(--radius-xl); background:rgba(255,255,255,.03); border:1px solid rgba(148,163,184,.14)}
+    .t-item:before{content:""; position:absolute; left:-5px; top:18px; width:10px; height:10px; border-radius:50%; background:linear-gradient(90deg,var(--brand),var(--brand-2)); box-shadow:0 0 0 3px rgba(34,211,238,.2)}
+
+    /* Progress */
+    .progress{height:10px;border-radius:999px;background:rgba(148,163,184,.15);overflow:hidden}
+    .progress > span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+
+    /* Table */
+    table{width:100%;border-collapse:separate;border-spacing:0 10px}
+    th,td{text-align:left;padding:12px 14px}
+    th{font-weight:600;color:#cbd5e1}
+    tbody tr{background:rgba(255,255,255,.03)}
+    tbody tr:hover{background:rgba(255,255,255,.06)}
+
+    /* Chips (kontak) */
+    .contact-info{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:15px}
+    .chip{background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.3); padding:8px 16px; border-radius:25px; font-size:15px; white-space:nowrap}
+
+    /* Gallery */
+    .gallery{display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:10px}
+    .gallery img{border-radius:14px; aspect-ratio:1/1; object-fit:cover; border:1px solid rgba(148,163,184,.2)}
+    @media (max-width:980px){ .gallery{grid-template-columns:repeat(3,minmax(0,1fr))} }
+
+    /* Portfolio cards */
+    .p-card img{
+      width:100%; aspect-ratio: 16/10; object-fit:cover;
+      border-radius:16px; border:1px solid rgba(148,163,184,.2)
+    }
+    .p-tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .p-thumb-link{display:block; border-radius:16px; overflow:hidden; position:relative}
+    .p-thumb-link:after{
+      content:"Klik untuk buka"; position:absolute; inset:auto 8px 8px auto;
+      background:rgba(0,0,0,.55); padding:6px 10px; border-radius:999px;
+      font-size:12px; color:#fff; opacity:0; transform:translateY(6px); transition:.2s;
+    }
+    .p-thumb-link:hover:after{opacity:1; transform:translateY(0)}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(148,163,184,.12); margin-top:48px; padding:24px 0; color:var(--muted)}
+
+    /* Neon stars (subtle bg) */
+    .stars{position:fixed; inset:0; pointer-events:none; z-index:-1}
+    .stars span{position:absolute; width:2px; height:2px; background:radial-gradient(circle, rgba(255,255,255,.9) 0, rgba(255,255,255,0) 70%); opacity:.7; filter:drop-shadow(0 0 6px rgba(167,139,250,.8))}
+
+    /* Modal */
+    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.6)}
+    .modal.open{display:flex}
+    .modal .card{max-width:640px; width:90%}
+
+    /* Utility */
+    .hidden{display:none}
+    .muted{color:var(--muted)}
+    .center{display:flex; align-items:center; justify-content:center}
+    .right{text-align:right}
+    .mt-8{margin-top:32px}
+    .mb-4{margin-bottom:16px}
+    .mb-8{margin-bottom:32px}
+    .gap-8{gap:32px}
+    .tag{font-size:12px; letter-spacing:.3px; color:#cbd5e1}
+  </style>
+</head>
+
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <!-- HEADER / NAV -->
+  <header class="site">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Imam N. I. — Biodata</h1>
+      </div>
+
+      <div class="hamburger" id="hamburger" aria-label="Buka menu">☰</div>
+
+      <nav class="navbar" id="navbar" aria-label="Navigasi utama">
+        <a href="#about">Tentang</a>
+        <a href="#education">Pendidikan</a>
+        <a href="#skills">Skill</a>
+        <a href="#portfolio">Portofolio</a>
+        <a href="#achievements">Prestasi</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact" class="btn btn-primary">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="grid grid-2">
+        <div>
+          <span class="badge">Website Biodata</span>
+          <h2>Halo! Aku
+            <span style="background:linear-gradient(90deg,var(--brand),var(--brand-2)); -webkit-background-clip:text; background-clip:text; color:transparent">
+              Imam Nur Ihsanuddin
+            </span>
+          </h2>
+          <p>Calon developer yang suka belajar hal baru, dari jaringan, web, sampai UI/UX. Ini adalah website biodata interaktif dengan tema neon modern, dilengkapi timeline, kartu, progress bar skill, portofolio (klik gambarnya untuk buka PDF/HTML), hingga generator CV PDF.</p>
+          <div class="mt-8">
+            <button class="btn btn-primary" id="btnHire">📨 Hire Me</button>
+            <button class="btn" id="btnTheme">🌓 Ganti Tema</button>
+            <button class="btn btn-ghost" id="btnPrint">🖨️ Cetak PDF</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="profile-wrap">
+              <!-- PERBESAR FOTO diatur via .profile-photo (CSS) -->
+              <img src="me.jpg" alt="Foto Profil" class="profile-photo" loading="lazy">
+              <div>
+                <h3 style="margin:0 0 6px">Biodata Singkat</h3>
+                <p class="muted">
+                  Nama lengkap: <b>Imam Nur Ihsanuddin</b><br/>
+                  Tempat/Tgl Lahir: Kulon Progo, 28-03-2008<br/>
+                  Alamat: Klampis, Tanjungharjo, Nanggulan, Kulon Progo, Yogyakarta
+                </p>
+
+                <div class="contact-info">
+                  <span class="chip">📧 imamihsanuddin02@gmail.com</span>
+                  <span class="chip">📱 085-915-289-3180</span>
+                  <span class="chip">🔗 @imam.org</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-3 mt-8">
+            <div class="card center" style="flex-direction:column">
+              <div class="tag">Pengalaman</div>
+              <div style="font-size:30px; font-weight:700"> > 1 Tahun</div>
+            </div>
+            <div class="card center" style="flex-direction:column">
+              <div class="tag">Proyek</div>
+              <div style="font-size:30px; font-weight:700">18+</div>
+            </div>
+            <div class="card center" style="flex-direction:column">
+              <div class="tag">Sertifikat</div>
+              <div style="font-size:30px; font-weight:700">4</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section id="about">
+      <h3 class="section-title">Tentang Saya</h3>
+      <p class="section-sub">Ringkasan kepribadian, hobi, dan tujuan karier singkat.</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h4>Kepribadian</h4>
+          <p>Disiplin, cepat belajar, dan suka kolaborasi. Senang memecahkan masalah kompleks menjadi langkah-langkah kecil yang rapi.</p>
+        </div>
+        <div class="card">
+          <h4>Hobi</h4>
+          <p>Ngoprek Linux, desain antarmuka, fotografi, futsal, dan menulis catatan belajar supaya mudah diingat.</p>
+        </div>
+        <div class="card">
+          <h4>Tujuan</h4>
+          <p>Dalam 2–3 tahun ke depan, ingin menjadi <i>full-stack</i> developer yang kuat di frontend dan paham DevOps dasar.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PENDIDIKAN -->
+    <section id="education" class="mt-8">
+      <h3 class="section-title">Pendidikan</h3>
+      <p class="section-sub">Riwayat sekolah & pelatihan.</p>
+      <div class="timeline">
+        <div class="t-item">
+          <b>SMK — Teknik Komputer & Jaringan</b>
+          <div class="muted">2022 – 2025</div>
+          <div>Fokus pada jaringan dasar, sistem operasi, layanan server, dan pengembangan web sederhana.</div>
+        </div>
+        <div class="t-item">
+          <b>PKL — BSI UII</b>
+          <div class="muted">3 Bulan</div>
+          <div>Mengelola inventaris perangkat, membantu troubleshooting jaringan, dokumentasi teknis, dan otomasi kecil menggunakan skrip.</div>
+        </div>
+        <div class="t-item">
+          <b>Kelas Online</b>
+          <div class="muted">Mandiri</div>
+          <div>Belajar HTML, CSS, JavaScript, Git, dasar Linux, dan pengantar desain UI.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILL -->
+    <section id="skills" class="mt-8">
+      <h3 class="section-title">Skill</h3>
+      <p class="section-sub">Progres penguasaan (estimasi pribadi).</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h4>Frontend</h4>
+          <div class="mb-4">HTML/CSS</div>
+          <div class="progress mb-8"><span style="width:90%"></span></div>
+          <div class="mb-4">JavaScript</div>
+          <div class="progress mb-8"><span style="width:75%"></span></div>
+          <div class="mb-4">UI/UX</div>
+          <div class="progress"><span style="width:70%"></span></div>
+        </div>
+        <div class="card">
+          <h4>Jaringan & Sistem</h4>
+          <div class="mb-4">Linux</div>
+          <div class="progress mb-8"><span style="width:80%"></span></div>
+          <div class="mb-4">Jaringan Dasar</div>
+          <div class="progress mb-8"><span style="width:70%"></span></div>
+          <div class="mb-4">Server</div>
+          <div class="progress"><span style="width:60%"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTOFOLIO -->
+    <section id="portfolio" class="mt-8">
+      <h3 class="section-title">Portofolio</h3>
+      <p class="section-sub">Klik gambar untuk membuka file PDF/HTML di folder yang sama.</p>
+      <div id="projects" class="grid grid-3"></div>
+    </section>
+
+    <!-- PRESTASI -->
+    <section id="achievements" class="mt-8">
+      <h3 class="section-title">Prestasi & Sertifikat</h3>
+      <p class="section-sub">Dokumentasi pencapaian singkat.</p>
+      <table>
+        <thead>
+          <tr><th>Tahun</th><th>Judul</th><th>Keterangan</th></tr>
+        </thead>
+        <tbody id="tblAchievements"></tbody>
+      </table>
+    </section>
+
+    <!-- GALERI -->
+    <section id="gallery" class="mt-8">
+      <h3 class="section-title">Galeri</h3>
+      <p class="section-sub">Kumpulan foto kegiatan.</p>
+      <div class="gallery" id="gal"></div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section id="testimonials" class="mt-8">
+      <h3 class="section-title">Testimoni</h3>
+      <p class="section-sub">Apa kata teman / mentor?</p>
+      <div class="grid grid-3" id="testis"></div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="mt-8">
+      <h3 class="section-title">Blog Ringkas</h3>
+      <p class="section-sub">Catatan belajar dan cerita pendek.</p>
+      <div id="posts" class="grid grid-3"></div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="contact" class="mt-8">
+      <h3 class="section-title">Kontak</h3>
+      <p class="section-sub">Isi formulir berikut untuk menghubungi saya.</p>
+      <form id="contactForm" class="card">
+        <div class="grid grid-2">
+          <div>
+            <label>Nama</label>
+            <input name="name" required class="card" style="width:100%; padding:12px; outline:none" placeholder="Nama kamu"/>
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" name="email" required class="card" style="width:100%; padding:12px; outline:none" placeholder="email@contoh.com"/>
+          </div>
+        </div>
+        <div class="mt-8">
+          <label>Pesan</label>
+          <textarea name="message" required class="card" rows="5" style="width:100%; padding:12px; outline:none" placeholder="Tulis pesanmu..."></textarea>
+        </div>
+        <div class="mt-8 right">
+          <button class="btn btn-primary" type="submit">Kirim</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- CV -->
+    <section id="resume" class="mt-8">
+      <h3 class="section-title">Unduh CV</h3>
+      <p class="section-sub">Otomatis generate CV PDF dari data biodata di halaman ini.</p>
+      <div class="card">
+        <button id="btnCV" class="btn">⬇️ Generate & Download CV (PDF)</button>
+        <span class="muted" style="margin-left:10px">*Menggunakan print-to-PDF browser.</span>
+      </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal" aria-modal="true" role="dialog">
+      <div class="card">
+        <h3>Terima kasih! 🎉</h3>
+        <p>Pesanmu sudah terkirim. Aku akan balas lewat email secepatnya.</p>
+        <div class="right">
+          <button class="btn" id="closeModal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="container">
+    <div class="grid grid-3">
+      <div>
+        <div class="brand" style="margin-bottom:8px">
+          <div class="logo" aria-hidden="true"></div>
+          <b>Imam — Biodata</b>
+        </div>
+        <div class="muted">© <span id="year"></span> Dibuat untuk tugas ASJ tahun 2025.</div>
+      </div>
+      <div>
+        
+    </div>
+  </footer>
+
+  <script>
+    // ===== BINTANG LATAR
+    const starRoot = document.querySelector('.stars');
+    for(let i=0;i<120;i++){
+      const s = document.createElement('span');
+      s.style.left = Math.random()*100+'%';
+      s.style.top = Math.random()*100+'%';
+      s.style.opacity = (0.4 + Math.random()*0.6).toFixed(2);
+      s.style.transform = `scale(${0.5 + Math.random()*1.5})`;
+      starRoot.appendChild(s);
+    }
+
+    // ===== DATA
+    const projects = [
+      {title:'Konfigurasi DNS Server',tag:['DNS'],img:'dns.webp',desc:'Melakukan instalasi dan konfigurasi DNS pada Ubuntu 22.',link:'laporandns.pdf'},
+      {title:'Konfigurasi WEB Server',tag:['WEB'],img:'web.webp',desc:'Melakukan instalasi Apache2 dan konfigurasi di Ubuntu Web Server.',link:'laporandns.pdf'},
+      {title:'Konfigurasi Wordpress',tag:['WP'],img:'wp.png',desc:'Melakukan instalasi dan konfigurasi WordPress pada web server.',link:'web.pdf'},
+    ];
+
+    const achievements = [
+      {year:'2018',title:'Juara 2 Catur',desc:'Tingkat kecamatan'},
+      {year:'2018',title:'Juara 2 CCA',desc:'CCA waktu SD tingkat kecamatan'},
+      {year:'2024',title:'Sertifikat Imitan Industri',desc:'Akreditasi A pada Imitan Industri SMK N 2'},
+      {year:'2025',title:'Ketua Panitia HUT RI',desc:'Koordinator acara 17-an'},
+    ];
+
+    const gallery = [
+      "noo.jpg","kambing.jpg","ied.jpg","dolan.jpg","nyinom.jpg","sunset.jpg","upacara.jpg","well.jpg","tgs.jpg",
+    ];
+
+    const testis = [
+      {name:'Teman Kelas',text:'Imam orangnya konsisten. Kalau ga paham sesuatu, dia cari sampai dapat. Mantap!'},
+      {name:'Pembimbing',text:'Presentasi rapi, dokumentasi lengkap, dan desain terlihat berkembang dari waktu ke waktu.'},
+      {name:'Mentor PKL',text:'Kerja timnya oke, cepat adaptasi dan mau menerima feedback.'},
+    ];
+
+    const posts = [
+      {title:'Belajar Git dari Nol',date:'2025-03-02',excerpt:'Catatan singkat inisialisasi repo, commit, branch, dan push.'},
+      {title:'Tips Rapiin CSS',date:'2025-04-10',excerpt:'Gunakan variabel, utility classes, dan hindari nested berlebihan.'},
+      {title:'Catatan PKL Minggu 1',date:'2025-05-07',excerpt:'Instalasi, audit perangkat, dan perbaikan kabel jaringan.'},
+    ];
+
+    // ===== RENDER: PORTOFOLIO (gambar klik -> buka file)
+    const elProjects = document.getElementById('projects');
+    projects.forEach(p=>{
+      const card = document.createElement('article');
+      card.className='card p-card';
+      card.innerHTML = `
+        <a class="p-thumb-link" href="${p.link}" target="_blank" rel="noopener" aria-label="Buka ${p.title}">
+          <img src="${p.img}" alt="${p.title}" loading="lazy">
+        </a>
+        <h4 style="margin:10px 0 6px">${p.title}</h4>
+        <p class="muted">${p.desc}</p>
+        <div class="p-tags">
+          ${p.tag.map(t=>`<span class='chip'>#${t}</span>`).join('')}
+        </div>
+      `;
+      elProjects.appendChild(card);
+    });
+
+    // ===== RENDER: PRESTASI
+    const elAch = document.getElementById('tblAchievements');
+    achievements.forEach(a=>{
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${a.year}</td><td>${a.title}</td><td class="muted">${a.desc}</td>`;
+      elAch.appendChild(tr);
+    });
+
+    // ===== RENDER: GALERI
+    const elGal = document.getElementById('gal');
+    gallery.forEach(src=>{
+      const img = document.createElement('img');
+      img.loading = 'lazy';
+      img.src = src;
+      img.alt = 'Foto kegiatan';
+      elGal.appendChild(img);
+    });
+
+    // ===== RENDER: TESTIMONI
+    const elTestis = document.getElementById('testis');
+    testis.forEach(t=>{
+      const c = document.createElement('div');
+      c.className='card';
+      c.innerHTML=`<p style="font-style:italic">“${t.text}”</p><div class="muted">— ${t.name}</div>`;
+      elTestis.appendChild(c);
+    });
+
+    // ===== RENDER: BLOG
+    const elPosts = document.getElementById('posts');
+    posts.forEach(p=>{
+      const a = document.createElement('article');
+      a.className='card';
+      a.innerHTML = `
+        <div class="tag">${new Date(p.date).toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric'})}</div>
+        <h4 style="margin:8px 0">${p.title}</h4>
+        <p class="muted">${p.excerpt}</p>
+        
+      `;
+      elPosts.appendChild(a);
+    });
+
+    // ===== INTERAKSI
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle tema
+    document.getElementById('btnTheme').addEventListener('click',()=>{
+      const root = document.documentElement;
+      const dark = getComputedStyle(root).getPropertyValue('--bg').trim() === '#0b0f17';
+      if(dark){
+        root.style.setProperty('--bg','#f8fafc');
+        root.style.setProperty('--card','#ffffff');
+        root.style.setProperty('--text','#0f172a');
+        root.style.setProperty('--muted','#475569');
+      }else{
+        root.style.setProperty('--bg','#0b0f17');
+        root.style.setProperty('--card','#111827');
+        root.style.setProperty('--text','#e5e7eb');
+        root.style.setProperty('--muted','#94a3b8');
+      }
+    });
+e
+    // Print halaman
+    document.getElementById('btnPrint').addEventListener('click',()=> window.print());
+
+    // Print CV (scroll ke about biar rapi dulu)
+    document.getElementById('btnCV').addEventListener('click',()=>{
+      const h = window.location.hash;
+      window.location.hash = '#about';
+      setTimeout(()=>{window.print(); window.location.hash=h;}, 300);
+    });
+
+    // Modal kontak
+    const modal = document.getElementById('modal');
+    const closeModalBtn = document.getElementById('closeModal');
+    closeModalBtn.addEventListener('click',()=>modal.classList.remove('open'));
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) modal.classList.remove('open'); });
+
+    // Scroll ke kontak
+    document.getElementById('btnHire').addEventListener('click',()=>{
+      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Submit form (dummy)
+    document.getElementById('contactForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      modal.classList.add('open');
+      e.target.reset();
+    });
+
+    // Shortcut 'd' untuk toggle tema
+    window.addEventListener('keydown', (e)=>{
+      if(e.key.toLowerCase()==='d') document.getElementById('btnTheme').click();
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById("hamburger");
+    const navbar = document.getElementById("navbar");
+    hamburger.addEventListener("click", () => {
+      navbar.classList.toggle("active");
+    });
+    // klik di luar menutup menu (HP)
+    document.addEventListener('click',(e)=>{
+      const inside = navbar.contains(e.target) || hamburger.contains(e.target);
+      if(!inside) navbar.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
